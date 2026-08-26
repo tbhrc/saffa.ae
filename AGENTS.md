@@ -74,7 +74,8 @@ robots.txt
 
 ### Data safety:
 - No credentials, API keys or secrets in any file
-- WhatsApp group links use placeholder format `https://chat.whatsapp.com/[GroupID]` — actual links managed by David
+- WhatsApp group links must come from the canonical registry: `Saffa.ae/30 - Community/32 - WhatsApp Structure/WhatsApp Group Registry.md` — do not invent or hardcode placeholder URLs
+- If you need to add or update a WhatsApp link, read the registry first and use the exact verified invite URL
 
 ---
 

@@ -38,6 +38,11 @@
       Submissions are reviewed within 48 hours. Verified listings are marked with ✓.
     </div>
 
+    <div class="info-box" style="margin-bottom:1.5rem;border-left:4px solid var(--gold)">
+      <strong>📬 Submissions are reviewed manually</strong>
+      <p style="margin:0.5rem 0 0">Your details go straight to the Saffa.ae team via WhatsApp. We aim to review and publish within 48 hours. You will be contacted on the WhatsApp number or email you provide.</p>
+    </div>
+
     <form id="listing-form" style="display:flex;flex-direction:column;gap:1.25rem">
       <div class="form-group">
         <label class="form-label" for="biz-name">Business / Organisation Name <span style="color:var(--red)">*</span></label>
@@ -129,8 +134,9 @@
     </form>
 
     <div id="form-success" style="display:none;margin-top:2rem" class="success-box">
-      <strong>✓ Submission received!</strong>
-      <p>Thank you — we'll review your listing within 48 hours and email you when it goes live.</p>
+      <strong>✓ WhatsApp opened with your submission!</strong>
+      <p>Your listing details have been pre-filled in WhatsApp — please send the message to complete your submission. We'll review and publish within 48 hours.</p>
+      <p style="font-size:0.8125rem;margin-top:0.5rem">If WhatsApp didn't open, email your details to <a href="mailto:listings@saffa.ae" style="color:var(--green)">listings@saffa.ae</a>.</p>
     </div>
 
     <div id="form-error" style="display:none;margin-top:2rem" class="warning-box">
@@ -147,7 +153,40 @@
 <script>
 document.getElementById('listing-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  /* Form submission — in v0.1 we show success state; backend integration (Google Forms or Supabase) to be wired in v0.2 */
+  /* Build a readable summary and open WhatsApp with pre-filled message */
+  const name = document.getElementById('biz-name').value.trim();
+  const category = document.getElementById('biz-category').value;
+  const emirate = document.getElementById('biz-emirate').value;
+  const area = document.getElementById('biz-area').value.trim();
+  const desc = document.getElementById('biz-desc').value.trim();
+  const website = document.getElementById('biz-website').value.trim();
+  const phone = document.getElementById('biz-phone').value.trim();
+  const whatsapp = document.getElementById('biz-whatsapp').value.trim();
+  const instagram = document.getElementById('biz-instagram').value.trim();
+  const saOwned = document.getElementById('biz-sa-owned').value;
+  const submitter = document.getElementById('biz-submitter').value.trim();
+  const email = document.getElementById('biz-email').value.trim();
+
+  const msg = [
+    '📋 *Saffa.ae Listing Submission*',
+    '',
+    '*Business:* ' + (name || '—'),
+    '*Category:* ' + (category || '—'),
+    '*Emirate:* ' + (emirate || '—'),
+    '*Area:* ' + (area || '—'),
+    '*SA-owned:* ' + (saOwned || '—'),
+    '*Description:* ' + (desc || '—'),
+    '*Website:* ' + (website || '—'),
+    '*Phone:* ' + (phone || '—'),
+    '*WhatsApp:* ' + (whatsapp || '—'),
+    '*Instagram:* ' + (instagram || '—'),
+    '*Submitted by:* ' + (submitter || '—') + (email ? ' (' + email + ')' : ''),
+  ].join('\n');
+
+  const waURL = 'https://wa.me/971000000000?text=' + encodeURIComponent(msg);
+  /* v0.2: replace 971000000000 with actual admin WhatsApp number */
+  window.open(waURL, '_blank');
+
   document.getElementById('listing-form').style.display = 'none';
   document.getElementById('form-success').style.display = 'block';
 });
