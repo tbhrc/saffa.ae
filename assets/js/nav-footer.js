@@ -99,8 +99,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© <span id="footer-year">2026</span> Saffa.ae — For South Africans in the UAE. <a href="/about/">About</a></p>
-        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4)">Listings are community-sourced. Always verify details before visiting or contacting.</p>
+        <p>© <span id="footer-year">2026</span> Saffa.ae — For South Africans in the UAE. <a href="/about/">About</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4)">Listings are community-sourced. Always verify details before visiting or contacting. Some listings are <a href="/terms/" style="color:rgba(255,255,255,0.5)">Saffa-affiliated</a> — disclosed on each page.</p>
         <p class="site-credit">Website created by <a href="https://implementai.ae" target="_blank" rel="noopener noreferrer">iMPLEMENTAi.ae</a></p>
       </div>
     </div>

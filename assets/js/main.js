@@ -72,6 +72,44 @@
       });
     });
 
+    /* ── Measurement: event tracking hooks ──────────────────────────────────── */
+    /* Fires window.saffa.track(event, props) — consumed by analytics snippet
+       (Plausible custom events, GA4 gtag, etc.) when present.             */
+    window.saffa = window.saffa || {};
+    window.saffa.track = function (event, props) {
+      /* Plausible */
+      if (typeof window.plausible === 'function') {
+        window.plausible(event, { props: props });
+      }
+      /* GA4 */
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', event, props || {});
+      }
+    };
+
+    /* Provider website clicks */
+    document.querySelectorAll('a[data-track="provider-click"]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        window.saffa.track('provider_click', { provider: a.dataset.provider || a.href });
+      });
+    });
+
+    /* WhatsApp join clicks */
+    document.querySelectorAll('a[href*="chat.whatsapp.com"], a[href*="wa.me"]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        window.saffa.track('whatsapp_click', { url: a.href.split('?')[0] });
+      });
+    });
+
+    /* Directory search performed */
+    var heroSearch = document.getElementById('hero-search');
+    if (heroSearch) {
+      heroSearch.addEventListener('submit', function () {
+        var q = (heroSearch.querySelector('input') || {}).value || '';
+        window.saffa.track('search', { query: q.slice(0, 100) });
+      });
+    }
+
     /* ── Legacy .fade-in support ─────────────────────────────────────────────── */
     if ('IntersectionObserver' in window) {
       const els = document.querySelectorAll('.fade-in');
