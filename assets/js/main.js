@@ -2,24 +2,56 @@
 (function () {
   'use strict';
 
-  /* ---- Mobile Nav ---- */
-  const mobileBtn = document.getElementById('mobile-menu-btn');
-  const closeBtn  = document.getElementById('mobile-menu-close');
+  /* ── Mobile Nav v0.2 — CSS-transition driven, backdrop, scroll-lock ──────── */
+  const mobileBtn  = document.getElementById('mobile-menu-btn');
+  const closeBtn   = document.getElementById('mobile-menu-close');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  if (mobileBtn && mobileMenu) {
-    mobileBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+  /* Create backdrop element */
+  let backdrop = document.querySelector('.nav-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
   }
-  if (closeBtn && mobileMenu) {
-    closeBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+  function openNav() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.add('is-open');
+    backdrop.classList.add('is-visible');
+    document.body.classList.add('nav-open');
+    if (mobileBtn) mobileBtn.setAttribute('aria-expanded', 'true');
   }
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileMenu) mobileMenu.classList.remove('open');
+
+  function closeNav() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('is-open');
+    backdrop.classList.remove('is-visible');
+    document.body.classList.remove('nav-open');
+    if (mobileBtn) mobileBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  if (mobileBtn) mobileBtn.addEventListener('click', openNav);
+  if (closeBtn)  closeBtn.addEventListener('click', closeNav);
+  backdrop.addEventListener('click', closeNav);
+
+  /* Close on Escape */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeNav();
   });
 
-  /* ---- Active nav link ---- */
+  /* Close when a nav link is tapped (SPA-like feel) */
+  if (mobileMenu) {
+    mobileMenu.querySelectorAll('.mobile-menu-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        setTimeout(closeNav, 80);
+      });
+    });
+  }
+
+  /* ── Active nav link ─────────────────────────────────────────────────────── */
   const path = window.location.pathname.replace(/\/$/, '') || '/';
-  document.querySelectorAll('.nav-link, .mobile-menu-link').forEach((link) => {
+  document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(function (link) {
     const href = link.getAttribute('href') || '';
     const linkPath = href.replace(/\/$/, '') || '/';
     if (path === linkPath || (linkPath !== '/' && path.startsWith(linkPath))) {
@@ -27,9 +59,9 @@
     }
   });
 
-  /* ---- Smooth scroll for anchor links ---- */
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (e) => {
+  /* ── Smooth scroll for anchor links ─────────────────────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
       const target = document.querySelector(anchor.getAttribute('href'));
       if (target) {
         e.preventDefault();
@@ -38,23 +70,23 @@
     });
   });
 
-  /* ---- Intersection observer: fade-in sections ---- */
+  /* ── Legacy .fade-in support (keep for any pages not yet on reveal-up) ───── */
   if ('IntersectionObserver' in window) {
     const els = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.style.opacity = '1';
           entry.target.style.transform = 'translateY(0)';
-          observer.unobserve(entry.target);
+          obs.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
-    els.forEach((el) => {
+    els.forEach(function (el) {
       el.style.opacity = '0';
       el.style.transform = 'translateY(24px)';
       el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      observer.observe(el);
+      obs.observe(el);
     });
   }
 })();

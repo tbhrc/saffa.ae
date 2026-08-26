@@ -58,6 +58,11 @@
     "@type": "WebSite",
     "name": "Saffa.ae",
     "url": "https://saffa.ae",
+    "creator": {
+      "@type": "Organization",
+      "name": "iMPLEMENTAi.ae",
+      "url": "https://implementai.ae"
+    },
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -74,14 +79,27 @@
 
 <div id="site-nav"></div>
 
-<!-- HERO -->
+<!-- HERO v0.2 — layered composition -->
 <section class="hero" aria-label="Search South Africans in UAE">
-  <div class="container hero-inner">
-    <div class="hero-badge">🇿🇦 45,000+ South Africans in the UAE</div>
-    <h1>The South African<br><span>Community in the UAE</span></h1>
-    <p class="hero-sub">Your home away from home. Find SA businesses, expat guides, WhatsApp groups and events. From Durban to Dubai — you're among Saffas.</p>
+  <!-- Background image layer — Concept 03 -->
+  <picture>
+    <source media="(min-width: 769px)" srcset="/assets/images/hero/hero-homepage-desktop.webp" type="image/webp">
+    <img class="hero-bg-img" src="/assets/images/hero/hero-homepage-mobile.webp"
+         srcset="/assets/images/hero/hero-homepage-mobile.webp 768w, /assets/images/hero/hero-homepage-desktop.webp 1440w"
+         sizes="100vw"
+         alt="" width="1440" height="810" fetchpriority="high">
+  </picture>
+  <!-- Directional overlay for text legibility -->
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <!-- Gold arcs decorative layer -->
+  <img class="hero-gold-arcs" src="/assets/images/hero/gold-arcs.svg" alt="" width="680" height="510" aria-hidden="true">
 
-    <div class="search-wrap" id="search-wrap">
+  <div class="container hero-inner">
+    <div class="hero-badge" data-hero-reveal="0">🇿🇦 45,000+ South Africans in the UAE</div>
+    <h1 data-hero-reveal="120">The South African<br><span>Community in the UAE</span></h1>
+    <p class="hero-sub" data-hero-reveal="250">Your home away from home. Find SA businesses, expat guides, WhatsApp groups and events. From Durban to Dubai — you're among Saffas.</p>
+
+    <div class="search-wrap" id="search-wrap" data-hero-reveal="380">
       <div class="search-box">
         <div class="search-icon">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
@@ -92,7 +110,7 @@
       <div id="search-results" role="listbox" aria-label="Search results"></div>
     </div>
 
-    <div class="search-pills" aria-label="Quick navigation">
+    <div class="search-pills" data-hero-reveal="480" aria-label="Quick navigation">
       <a href="/directory/food-lifestyle/" class="search-pill">🔥 Restaurants &amp; Braai</a>
       <a href="/directory/professional-business/?q=accountant" class="search-pill">💼 Accountants &amp; Tax</a>
       <a href="/guides/family-and-schools/" class="search-pill">🎓 Schools Dubai</a>
@@ -102,6 +120,9 @@
     </div>
   </div>
 </section>
+
+<!-- SA RIBBON DIVIDER -->
+<hr class="sa-ribbon" aria-hidden="true">
 
 <!-- STATS -->
 <section class="section-sm" aria-label="Community stats">
@@ -123,6 +144,23 @@
         <div class="stat-number">7</div>
         <div class="stat-label">In-depth guides</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT DO YOU NEED — task shortcuts -->
+<section class="section reveal-up" aria-label="Quick access to common tasks" style="padding-top:2.5rem;padding-bottom:2.5rem">
+  <div class="container">
+    <p class="section-label" style="margin-bottom:0.75rem">What do you need?</p>
+    <div class="task-grid">
+      <a href="/guides/moving-to-uae/" class="task-card"><span class="task-icon">✈️</span> Moving to UAE</a>
+      <a href="/guides/first-weeks/" class="task-card"><span class="task-icon">🏠</span> Just arrived</a>
+      <a href="/directory/professional-business/" class="task-card"><span class="task-icon">💼</span> SA businesses</a>
+      <a href="/directory/food-lifestyle/" class="task-card"><span class="task-icon">🔥</span> Food &amp; Braai</a>
+      <a href="/community/" class="task-card"><span class="task-icon">💬</span> Join WhatsApp</a>
+      <a href="/guides/consulate-documents/" class="task-card"><span class="task-icon">📄</span> Consulate &amp; Docs</a>
+      <a href="/events/" class="task-card"><span class="task-icon">🗓️</span> SA Events</a>
+      <a href="/guides/money-and-banking/" class="task-card"><span class="task-icon">💰</span> Money &amp; Tax</a>
     </div>
   </div>
 </section>
@@ -181,20 +219,107 @@
   </div>
 </section>
 
-<!-- WHATSAPP JOIN BANNER -->
-<section class="section fade-in" aria-label="Join WhatsApp community">
+<!-- COMMUNITY PREVIEW — real brand icons -->
+<section class="section reveal-up" aria-label="WhatsApp community preview" style="background:var(--canvas-warm)">
   <div class="container">
-    <div class="wa-banner">
-      <svg viewBox="0 0 24 24" fill="white" width="48" height="48" style="margin:0 auto 1rem" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      <h2>Join the Saffas UAE WhatsApp Community</h2>
-      <p>Over 5,000 South Africans connecting on WhatsApp across 19+ groups — jobs, families, professionals, braai lovers and more.</p>
-      <div class="flex-center gap-4" style="flex-wrap:wrap">
-        <a href="https://chat.whatsapp.com/G6UBQgZzqgB3RTToN3vI3U" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-lg">
-          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Join Main Group — Saffas in Dubai
-        </a>
-        <a href="/community/" class="btn btn-outline-white">Browse all 19 groups</a>
+    <div class="section-header">
+      <span class="section-label">Community</span>
+      <h2>20 groups. One community.</h2>
+      <p class="section-sub">From braai masters to rugby fans, families to professionals — find your people.</p>
+    </div>
+
+    <!-- Desktop: grid. Mobile: horizontal swipe rail -->
+    <div class="reveal-stagger">
+      <div class="wa-groups-grid-v2" id="community-preview">
+        <!-- 8 featured groups shown on homepage -->
+        <div class="wa-group-card-v2" data-stagger="0">
+          <img class="wa-icon-img" src="/assets/images/community/whatsapp-rugby.webp"
+               srcset="/assets/images/community/whatsapp-rugby.webp 1x, /assets/images/community/whatsapp-rugby@2x.webp 2x"
+               width="320" height="320" alt="Rugby group" loading="lazy">
+          <div class="wa-card-body">
+            <h4>Rugby</h4>
+            <p>Springbok watch parties and rugby chat.</p>
+            <a href="https://chat.whatsapp.com/E5Tdz2o1Njz7CAkQHcI0Tx?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-sm" style="margin-top:auto">Join</a>
+          </div>
+        </div>
+        <div class="wa-group-card-v2" data-stagger="80">
+          <img class="wa-icon-img" src="/assets/images/community/whatsapp-braai.webp"
+               srcset="/assets/images/community/whatsapp-braai.webp 1x, /assets/images/community/whatsapp-braai@2x.webp 2x"
+               width="320" height="320" alt="Braai group" loading="lazy">
+          <div class="wa-card-body">
+            <h4>Braai</h4>
+            <p>Recipes, spots and finding the fire.</p>
+            <a href="https://chat.whatsapp.com/Iawa1tslLtnBUlvcEJqJAQ?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-sm" style="margin-top:auto">Join</a>
+          </div>
+        </div>
+        <div class="wa-group-card-v2" data-stagger="160">
+          <img class="wa-icon-img" src="/assets/images/community/whatsapp-jobs.webp"
+               srcset="/assets/images/community/whatsapp-jobs.webp 1x, /assets/images/community/whatsapp-jobs@2x.webp 2x"
+               width="320" height="320" alt="Jobs group" loading="lazy">
+          <div class="wa-card-body">
+            <h4>Jobs</h4>
+            <p>SA professionals and employers.</p>
+            <a href="https://chat.whatsapp.com/HIVSm8CnNx05VI7eGm937p?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-sm" style="margin-top:auto">Join</a>
+          </div>
+        </div>
+        <div class="wa-group-card-v2" data-stagger="240">
+          <img class="wa-icon-img" src="/assets/images/community/whatsapp-relocation.webp"
+               srcset="/assets/images/community/whatsapp-relocation.webp 1x, /assets/images/community/whatsapp-relocation@2x.webp 2x"
+               width="320" height="320" alt="Relocation group" loading="lazy">
+          <div class="wa-card-body">
+            <h4>Relocation &amp; Help</h4>
+            <p>Moving advice from Saffas who've done it.</p>
+            <a href="https://chat.whatsapp.com/DBlCPqMR91y8pzV3dtPplf?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-sm" style="margin-top:auto">Join</a>
+          </div>
+        </div>
+        <div class="wa-group-card-v2" data-stagger="320">
+          <img class="wa-icon-img" src="/assets/images/community/whatsapp-food-recipes.webp"
+               srcset="/assets/images/community/whatsapp-food-recipes.webp 1x, /assets/images/community/whatsapp-food-recipes@2x.webp 2x"
+               width="320" height="320" alt="Food and recipes group" loading="lazy">
+          <div class="wa-card-body">
+            <h4>Food &amp; Recipes</h4>
+            <p>SA food, biltong and where to find it.</p>
+            <a href="https://chat.whatsapp.com/EmOL3u7izS03tqLofjnDTs?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-sm" style="margin-top:auto">Join</a>
+          </div>
+        </div>
+        <div class="wa-group-card-v2" data-stagger="400">
+          <img class="wa-icon-img" src="/assets/images/community/whatsapp-business.webp"
+               srcset="/assets/images/community/whatsapp-business.webp 1x, /assets/images/community/whatsapp-business@2x.webp 2x"
+               width="320" height="320" alt="Business group" loading="lazy">
+          <div class="wa-card-body">
+            <h4>Business</h4>
+            <p>SA entrepreneurs and professionals.</p>
+            <a href="https://chat.whatsapp.com/L5wKvWA9qtP4K74J8TNYiU?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-sm" style="margin-top:auto">Join</a>
+          </div>
+        </div>
+        <div class="wa-group-card-v2" data-stagger="480">
+          <img class="wa-icon-img" src="/assets/images/community/whatsapp-family-parents.webp"
+               srcset="/assets/images/community/whatsapp-family-parents.webp 1x, /assets/images/community/whatsapp-family-parents@2x.webp 2x"
+               width="320" height="320" alt="Family and parents group" loading="lazy">
+          <div class="wa-card-body">
+            <h4>Family &amp; Parents</h4>
+            <p>Raising SA kids in the UAE.</p>
+            <a href="https://chat.whatsapp.com/D9qBF5yzVRlD8ALlGFRx68?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-sm" style="margin-top:auto">Join</a>
+          </div>
+        </div>
+        <div class="wa-group-card-v2" data-stagger="560">
+          <img class="wa-icon-img" src="/assets/images/community/whatsapp-going-out.webp"
+               srcset="/assets/images/community/whatsapp-going-out.webp 1x, /assets/images/community/whatsapp-going-out@2x.webp 2x"
+               width="320" height="320" alt="Going out group" loading="lazy">
+          <div class="wa-card-body">
+            <h4>Going Out</h4>
+            <p>Events, nights out, what's on.</p>
+            <a href="https://chat.whatsapp.com/LEEw0F8giOY9Z3ngtbR1lk?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-sm" style="margin-top:auto">Join</a>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="https://chat.whatsapp.com/G6UBQgZzqgB3RTToN3vI3U" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-lg" style="margin-right:1rem">
+        Join Main Community
+      </a>
+      <a href="/community/" class="btn btn-outline">Browse all 20 groups</a>
     </div>
   </div>
 </section>
@@ -319,6 +444,7 @@
 <div id="site-footer"></div>
 
 <script src="/assets/js/nav-footer.js"></script>
+<script src="/assets/js/motion.js"></script>
 <script src="/assets/js/main.js"></script>
 <script src="/assets/js/search.js"></script>
 </body>

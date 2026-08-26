@@ -848,3 +848,497 @@ p:last-child { margin-bottom: 0; }
   color: var(--gray-500);
 }
 .empty-state svg { width: 3rem; height: 3rem; margin: 0 auto 1rem; opacity: 0.4; }
+
+/* ============================================================
+   Saffa.ae v0.2 — Visual System, Motion and Layout Upgrades
+   Appended below v0.1 structural CSS.
+   ============================================================ */
+
+/* ---- Canvas & body upgrade ---- */
+body { background: var(--canvas, #FAFAF8); }
+.section { background: var(--canvas, #FAFAF8); }
+.bg-light, section.bg-light { background: var(--canvas-warm, #F5F2EC); }
+
+/* ---- Hero v0.2 — layered composition ---- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--hero-gradient);
+}
+
+/* Hero background image layer */
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Directional gradient overlay — text legibility on left, image on right */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-overlay, linear-gradient(to right, rgba(12,34,20,0.82) 0%, rgba(12,34,20,0.55) 55%, rgba(12,34,20,0.15) 100%));
+}
+
+/* Gold arcs decorative layer */
+.hero-gold-arcs {
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 55%;
+  max-width: 680px;
+  pointer-events: none;
+  opacity: 0.7;
+  transition: transform 8s ease-in-out;
+}
+
+/* Content sits above all layers */
+.hero .hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: var(--max-w, 1200px);
+  margin: 0 auto;
+  padding: 6rem 1.5rem 5rem;
+  gap: 0;
+}
+
+/* Hero entrance animations */
+[data-hero-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--dur-reveal, 700ms) var(--ease-out, ease),
+              transform var(--dur-reveal, 700ms) var(--ease-out, ease);
+}
+[data-hero-reveal].hero-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-badge[data-hero-reveal] { transition-duration: 500ms; }
+h1[data-hero-reveal] { transition-duration: 700ms; }
+.hero-sub[data-hero-reveal] { transition-duration: 650ms; }
+.search-wrap[data-hero-reveal] { transition-duration: 750ms; }
+.search-pills[data-hero-reveal] { transition-duration: 600ms; }
+.hero-cta[data-hero-reveal] { transition-duration: 550ms; }
+
+/* ---- Scroll reveal system ---- */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--dur-reveal, 700ms) var(--ease-out, ease),
+              transform var(--dur-reveal, 700ms) var(--ease-out, ease);
+}
+.reveal-fade {
+  opacity: 0;
+  transition: opacity var(--dur-reveal, 700ms) var(--ease-out, ease);
+}
+.reveal-up.revealed,
+.reveal-fade.revealed { opacity: 1; transform: none; }
+
+/* Stagger children */
+[data-stagger] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 500ms var(--ease-out, ease), transform 500ms var(--ease-out, ease);
+}
+[data-stagger].revealed { opacity: 1; transform: none; }
+
+/* ---- Community group visuals (v0.2 with WebP icons) ---- */
+.wa-group-card-v2 {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface, #fff);
+  border-radius: var(--radius-lg, 0.75rem);
+  overflow: hidden;
+  box-shadow: var(--shadow, 0 1px 3px rgb(0 0 0 / 0.1));
+  transition: transform var(--dur-base, 260ms) var(--ease-out, ease),
+              box-shadow var(--dur-base, 260ms) var(--ease-out, ease),
+              outline-color var(--dur-base, 260ms);
+  outline: 2px solid transparent;
+}
+.wa-group-card-v2:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg, 0 10px 15px rgb(0 0 0 / 0.1));
+  outline-color: var(--gold, #B48434);
+}
+.wa-group-card-v2 .wa-icon-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.wa-group-card-v2 .wa-card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+.wa-group-card-v2 h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--green-dark, #0C2214);
+  font-family: var(--font-serif);
+}
+.wa-group-card-v2 p {
+  font-size: 0.8125rem;
+  color: var(--gray-500, #6B7280);
+  flex: 1;
+}
+.wa-groups-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+@media (max-width: 640px) {
+  .wa-groups-grid-v2 { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+}
+
+/* Horizontal swipe rail for mobile community groups */
+.wa-swipe-rail {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.5rem;
+}
+.wa-swipe-rail::-webkit-scrollbar { display: none; }
+.wa-swipe-rail .wa-group-card-v2 {
+  flex: 0 0 180px;
+  scroll-snap-align: start;
+}
+
+/* ---- Homepage hero v0.2 specifics ---- */
+.hero h1 {
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  line-height: 1.1;
+  color: var(--white, #fff);
+  margin: 0.75rem 0;
+  font-weight: 700;
+}
+.hero h1 span {
+  color: var(--gold-light, #DA9966);
+  display: inline;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gold-light, #DA9966);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.1875rem);
+  color: rgba(255,255,255,0.85);
+  max-width: 560px;
+  margin-bottom: 2rem;
+}
+
+/* ---- SA ribbon divider ---- */
+.sa-ribbon {
+  height: 5px;
+  background: linear-gradient(to right, #007A4D 33.3%, #000 33.3% 36.6%, #FFB612 36.6% 50%, #DE3831 50% 63.4%, #002395 63.4% 66.6%, #007A4D 66.6%);
+  border: none;
+  margin: 0;
+  opacity: 0.7;
+}
+
+/* ---- Gold rule accent ---- */
+.gold-rule {
+  width: 48px;
+  height: 2px;
+  background: var(--gold, #B48434);
+  margin: 0.75rem 0 1.5rem;
+  border-radius: 1px;
+}
+
+/* ---- Directory category cards v0.2 ---- */
+.cat-card {
+  background: var(--surface, #fff);
+  border-radius: var(--radius-lg, 0.75rem);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transition: transform var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out),
+              outline-color var(--dur-base);
+  box-shadow: var(--shadow);
+  outline: 2px solid transparent;
+}
+.cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  outline-color: var(--gold);
+}
+.cat-card:hover .cat-icon { transform: translateY(-3px); }
+.cat-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  transition: transform var(--dur-base) var(--ease-spring);
+  display: block;
+}
+
+/* ---- Task shortcuts row ---- */
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 860px) { .task-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .task-grid { grid-template-columns: repeat(2, 1fr); gap: 0.625rem; } }
+
+.task-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  transition: background var(--dur-base), border-color var(--dur-base), transform var(--dur-base) var(--ease-out);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--green-dark);
+}
+.task-card:hover {
+  background: var(--gold-pale, #F5E8CC);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.task-card .task-icon { font-size: 1.375rem; flex-shrink: 0; }
+
+/* ---- Search pills v0.2 (now links) ---- */
+.search-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.search-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4375rem 0.875rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.2);
+  text-decoration: none;
+  transition: background var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast);
+  backdrop-filter: blur(4px);
+}
+.search-pill:hover {
+  background: rgba(255,255,255,0.22);
+  border-color: rgba(255,255,255,0.45);
+  color: #fff;
+}
+
+/* ---- Mobile nav v0.2 refinements ---- */
+.mobile-menu {
+  transition: transform var(--dur-slow, 500ms) var(--ease-out, ease),
+              opacity var(--dur-slow, 500ms) var(--ease-out, ease);
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+.mobile-menu.is-open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-menu-link {
+  transition: color var(--dur-fast), transform var(--dur-fast);
+  transform: translateX(12px);
+  opacity: 0;
+}
+.mobile-menu.is-open .mobile-menu-link {
+  transform: translateX(0);
+  opacity: 1;
+}
+.mobile-menu.is-open .mobile-menu-link:nth-child(1) { transition-delay: 80ms; }
+.mobile-menu.is-open .mobile-menu-link:nth-child(2) { transition-delay: 140ms; }
+.mobile-menu.is-open .mobile-menu-link:nth-child(3) { transition-delay: 200ms; }
+.mobile-menu.is-open .mobile-menu-link:nth-child(4) { transition-delay: 260ms; }
+.mobile-menu.is-open .mobile-menu-link:nth-child(5) { transition-delay: 320ms; }
+.mobile-menu.is-open .mobile-menu-link:nth-child(6) { transition-delay: 380ms; }
+.mobile-menu.is-open .mobile-menu-link:nth-child(7) { transition-delay: 440ms; }
+
+/* Body scroll lock when mobile menu open */
+body.nav-open { overflow: hidden; }
+
+/* Backdrop when mobile nav open */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 89;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-slow) var(--ease-out);
+  backdrop-filter: blur(2px);
+}
+.nav-backdrop.is-visible { opacity: 1; pointer-events: auto; }
+
+/* ---- Feature card v0.2 hover ---- */
+.feature-card {
+  transition: transform var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out),
+              border-color var(--dur-base);
+  border: 2px solid transparent;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+
+/* ---- Section label ---- */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+/* ---- About/lifestyle image compositions ---- */
+.hero-concept-img {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  object-fit: cover;
+}
+
+/* ── Reduced-motion override ────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  [data-hero-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .reveal-up, .reveal-fade, [data-stagger] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero-gold-arcs { transition: none !important; }
+  .mobile-menu { transition: none !important; }
+  .wa-group-card-v2, .cat-card, .feature-card, .task-card { transition: none !important; }
+}
+
+/* ── Site credit footer ──────────────────────────────────────────────────── */
+.site-credit {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 0.5rem;
+}
+.site-credit a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.site-credit a:hover { color: rgba(255,255,255,0.85); }
+
+/* ── Affiliated badge ────────────────────────────────────────────────────── */
+.badge-affiliated {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-pale);
+  border-radius: var(--radius-full);
+  padding: 0.15rem 0.55rem;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  cursor: help;
+}
+
+/* ── Where to get help component ─────────────────────────────────────────── */
+.help-box {
+  background: var(--canvas-warm);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin: 2.5rem 0;
+}
+.help-box h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.help-providers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.help-provider {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+}
+.help-provider-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  background: var(--gray-100);
+}
+.help-provider-body { flex: 1; min-width: 0; }
+.help-provider-body h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  color: var(--gray-900);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.help-provider-body p {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  margin-bottom: 0.6rem;
+}
+.help-provider-body .btn { font-size: 0.8rem; padding: 0.35rem 0.85rem; }
+.help-provider-tag {
+  font-size: 0.7rem;
+  color: var(--gray-500);
+  background: var(--gray-100);
+  border-radius: var(--radius-full);
+  padding: 0.1rem 0.45rem;
+  font-weight: 500;
+}
