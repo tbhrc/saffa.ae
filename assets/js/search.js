@@ -28,11 +28,23 @@
   function buildIndex(data) {
     const index = [];
     (data.listings || []).forEach((l) => {
+      /* search text: name + subcategory + description + tags + recommend_for */
+      const searchText = [
+        l.name,
+        l.subcategory,
+        l.description,
+        (l.tags || []).join(' '),
+        (l.recommend_for || []).join(' '),
+        l.relationship === 'saffa-affiliated' ? 'saffa affiliated' : '',
+      ].join(' ').toLowerCase();
+
       index.push({
         type: 'directory',
         title: l.name,
-        sub: l.subcategory + (l.emirate ? ' · ' + l.emirate : ''),
-        url: '/directory/' + l.category + '/#' + l.slug,
+        sub: (l.subcategory || '') + (l.emirate ? ' · ' + l.emirate : ''),
+        url: '/directory/' + l.category + '/#' + (l.slug || l.id),
+        _search: searchText,
+        relationship: l.relationship || '',
       });
     });
 
@@ -43,18 +55,34 @@
       { title: 'Family & Schools in Dubai', url: '/guides/family-and-schools/' },
       { title: 'Money & Banking Guide', url: '/guides/money-and-banking/' },
       { title: 'Work & Business in UAE', url: '/guides/work-and-business/' },
-      { title: 'Community Guide — Who's Who', url: '/guides/community-guide/' },
+      { title: 'Community Guide — Who\'s Who', url: '/guides/community-guide/' },
     ];
-    guides.forEach((g) => index.push({ type: 'guide', title: g.title, sub: 'SA Expat Guide', url: g.url }));
+    guides.forEach((g) => index.push({ type: 'guide', title: g.title, sub: 'SA Expat Guide', url: g.url, _search: g.title.toLowerCase() }));
 
+    /* Canonical WhatsApp groups — from registry */
     const groups = [
-      { title: 'Saffas in Dubai — Main Group', url: '/community/' },
-      { title: 'SA Jobs in UAE', url: '/community/' },
-      { title: 'SA Ladies UAE', url: '/community/' },
-      { title: 'SA Moms Dubai', url: '/community/' },
-      { title: 'Springboks UAE Rugby', url: '/community/' },
+      { title: 'Saffas in UAE — Main Community', url: 'https://chat.whatsapp.com/G6UBQgZzqgB3RTToN3vI3U' },
+      { title: 'Jobs', url: 'https://chat.whatsapp.com/HIVSm8CnNx05VI7eGm937p?mode=gi_t' },
+      { title: 'Business', url: 'https://chat.whatsapp.com/L5wKvWA9qtP4K74J8TNYiU?mode=gi_t' },
+      { title: 'Rugby', url: 'https://chat.whatsapp.com/E5Tdz2o1Njz7CAkQHcI0Tx?mode=gi_t' },
+      { title: 'Braai', url: 'https://chat.whatsapp.com/Iawa1tslLtnBUlvcEJqJAQ?mode=gi_t' },
+      { title: 'Food & Recipes', url: 'https://chat.whatsapp.com/EmOL3u7izS03tqLofjnDTs?mode=gi_t' },
+      { title: 'Soccer', url: 'https://chat.whatsapp.com/DrtBAXdKF5e39l8j4lZgmA?mode=gi_t' },
+      { title: 'Cricket', url: 'https://chat.whatsapp.com/CJB9HMj2tUb4UFrlEwqNy9?mode=gi_t' },
+      { title: 'Family & Parents', url: 'https://chat.whatsapp.com/D9qBF5yzVRlD8ALlGFRx68?mode=gi_t' },
+      { title: 'Relocation & Help', url: 'https://chat.whatsapp.com/DBlCPqMR91y8pzV3dtPplf?mode=gi_t' },
+      { title: 'Going Out', url: 'https://chat.whatsapp.com/LEEw0F8giOY9Z3ngtbR1lk?mode=gi_t' },
+      { title: 'Health & Wellness', url: 'https://chat.whatsapp.com/FN6Hewjun6w4HUP8HzECLD?mode=gi_t' },
+      { title: 'Singles', url: 'https://chat.whatsapp.com/HxY6jWcjjuu32IHMfNm4dp?mode=gi_t' },
+      { title: 'God & Faith', url: 'https://chat.whatsapp.com/HGR29kg0jYbDWK4naEPTQj?mode=gi_t' },
+      { title: 'Afrikaans', url: 'https://chat.whatsapp.com/EK1EbY3DeXAC6BEaLbre24?mode=gi_t' },
+      { title: 'AI', url: 'https://chat.whatsapp.com/FisNWluGuoK6cSdgvChHzx?mode=gi_t' },
+      { title: 'Buy & Sell', url: 'https://chat.whatsapp.com/FWCaGJlvN26GAxFTZ7Cpw5?mode=gi_t' },
+      { title: 'Events', url: 'https://chat.whatsapp.com/DD3fcOO8VjB3pZC6Qe4d3I?mode=gi_t' },
+      { title: 'Community Wins', url: 'https://chat.whatsapp.com/LkahwTy9MadEIifkwpvHUD?mode=gi_t' },
+      { title: 'Socialising & Networking', url: 'https://chat.whatsapp.com/GRxpzcQKLtB6jMH7dHosov?mode=gi_t' },
     ];
-    groups.forEach((g) => index.push({ type: 'group', title: g.title, sub: 'WhatsApp Community', url: g.url }));
+    groups.forEach((g) => index.push({ type: 'group', title: g.title, sub: 'WhatsApp Group', url: g.url, _search: g.title.toLowerCase() }));
 
     return index;
   }
@@ -91,7 +119,7 @@
         const data = await loadData();
         const index = buildIndex(data);
         const ql = q.toLowerCase();
-        const matches = index.filter((i) => i.title.toLowerCase().includes(ql) || (i.sub || '').toLowerCase().includes(ql));
+        const matches = index.filter((i) => (i._search || (i.title + ' ' + i.sub).toLowerCase()).includes(ql));
         renderResults(matches, q);
       }, 200);
     });
@@ -117,13 +145,7 @@
     });
   }
 
-  /* Search pills */
-  document.querySelectorAll('.search-pill').forEach((pill) => {
-    pill.addEventListener('click', () => {
-      const q = pill.textContent.trim();
-      window.location.href = '/directory/?q=' + encodeURIComponent(q);
-    });
-  });
+  /* Search pills — no override; anchors follow their own href */
 
   /* =============================================
      DIRECTORY FILTER (directory pages)
@@ -172,7 +194,8 @@
         <div class="listing-meta">
           ${l.sa_owned ? '<span class="listing-tag listing-tag-sa">🇿🇦 SA-Owned</span>' : ''}
           ${l.verified ? '<span class="listing-tag listing-verified">✓ Verified</span>' : ''}
-          ${(l.tags || []).map((t) => `<span class="listing-tag">${t}</span>`).join('')}
+          ${l.relationship === 'saffa-affiliated' ? '<span class="badge-affiliated" title="This business is affiliated with Saffa.ae">Saffa-affiliated</span>' : ''}
+          ${(l.tags || []).filter((t) => t !== 'SA-Owned' && t !== 'SA-Founded').map((t) => `<span class="listing-tag">${t}</span>`).join('')}
         </div>
         ${links.length ? '<div class="flex gap-2 mt-4">' + links.join('') + '</div>' : ''}
       </div>`;

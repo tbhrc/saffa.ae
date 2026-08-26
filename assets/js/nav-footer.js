@@ -7,7 +7,7 @@
   <nav class="nav" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="/" class="nav-logo" aria-label="Saffa.ae Home">
-        <img src="/assets/images/logo.png" alt="Saffa.ae" width="120" height="40">
+        <img src="/assets/images/brand/logo.svg" alt="Saffa.ae" width="120" height="40">
       </a>
       <div class="nav-links">
         <a href="/directory/" class="nav-link">Directory</a>
@@ -27,7 +27,7 @@
   </nav>
   <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <div class="mobile-menu-header">
-      <a href="/" aria-label="Saffa.ae Home"><img src="/assets/images/logo.png" alt="Saffa.ae" height="36"></a>
+      <a href="/" aria-label="Saffa.ae Home"><img src="/assets/images/brand/logo.svg" alt="Saffa.ae" height="36"></a>
       <button id="mobile-menu-close" aria-label="Close menu">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
@@ -54,7 +54,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="/assets/images/logo.png" alt="Saffa.ae">
+          <img src="/assets/images/brand/logo.svg" alt="Saffa.ae" width="160" height="54">
           <p>The home for South Africans in the UAE — directory, guides, WhatsApp community and events. Built by Saffas, for Saffas.</p>
           <div class="footer-social mt-4">
             <a href="https://www.instagram.com/saffa.ae" target="_blank" rel="noopener noreferrer" aria-label="Instagram">

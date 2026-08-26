@@ -16,18 +16,24 @@
 <body>
 <div id="site-nav"></div>
 
-<section class="page-header">
-  <div class="container">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><span>About</span></nav>
-    <h1>About Saffa.ae</h1>
-    <p>Built by Saffas, for Saffas living in the UAE.</p>
+<section class="hero" style="min-height:38vh">
+  <picture>
+    <source media="(min-width:769px)" srcset="/assets/images/hero/hero-about-desktop.webp">
+    <img class="hero-bg-img" src="/assets/images/hero/hero-about-mobile.webp" alt="" role="presentation" width="768" height="432" fetchpriority="high">
+  </picture>
+  <div class="hero-overlay"></div>
+  <div class="container hero-inner" style="padding-top:5rem;padding-bottom:3rem">
+    <nav class="breadcrumb" style="color:rgba(255,255,255,0.7)" data-hero-reveal="0"><a href="/" style="color:rgba(255,255,255,0.7)">Home</a><span class="breadcrumb-sep">›</span><span>About</span></nav>
+    <h1 data-hero-reveal="100" style="font-size:clamp(2rem,5vw,3.5rem)">About Saffa.ae</h1>
+    <p class="hero-sub" data-hero-reveal="220">Built by Saffas, for Saffas living in the UAE.</p>
   </div>
 </section>
+<hr class="sa-ribbon">
 
 <section class="section">
   <div class="container-sm">
     <div style="display:flex;align-items:center;gap:2rem;margin-bottom:3rem;flex-wrap:wrap">
-      <img src="/assets/images/logo.png" alt="Saffa.ae" style="height:80px;width:auto">
+      <img src="/assets/images/brand/logo.svg" alt="Saffa.ae" style="height:80px;width:auto">
       <div>
         <h2 style="margin-bottom:0.5rem">Saffa.ae</h2>
         <p style="color:var(--gray-600)">The community directory and guide for South Africans in the UAE.</p>
