@@ -42,7 +42,7 @@
         type: 'directory',
         title: l.name,
         sub: (l.subcategory || '') + (l.emirate ? ' · ' + l.emirate : ''),
-        url: '/directory/' + l.category + '/#' + (l.slug || l.id),
+        url: '/directory/' + l.category + '/' + (l.slug || l.id) + '/',
         _search: searchText,
         relationship: l.relationship || '',
       });
