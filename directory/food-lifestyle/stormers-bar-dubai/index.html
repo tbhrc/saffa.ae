@@ -17,12 +17,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script type="application/ld+json">
-  {
+{
   "@context": "https://schema.org",
   "@type": "FoodEstablishment",
   "name": "Stormers Rugby Bar",
   "description": "Popular SA sports bar showing SuperRugby, Springboks matches and SA Premier Soccer League games. Community favourite for big match days.",
-  "url": "https://saffa.ae/directory/food-lifestyle/stormers-bar-dubai/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://saffa.ae/directory/food-lifestyle/stormers-bar-dubai/"
+  },
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Dubai",
@@ -32,7 +35,7 @@
 }
   </script>
   <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saffa.ae/"}, {"@type": "ListItem", "position": 2, "name": "Directory", "item": "https://saffa.ae/directory/"}, {"@type": "ListItem", "position": 3, "name": "Food & Lifestyle", "item": "https://saffa.ae/directory/food-lifestyle/"}, {"@type": "ListItem", "position": 4, "name": "Stormers Rugby Bar", "item": "https://saffa.ae/directory/food-lifestyle/stormers-bar-dubai/"}]}
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saffa.ae/"}, {"@type": "ListItem", "position": 2, "name": "Directory", "item": "https://saffa.ae/directory/"}, {"@type": "ListItem", "position": 3, "name": "Food & Lifestyle", "item": "https://saffa.ae/directory/food-lifestyle/"}, {"@type": "ListItem", "position": 4, "name": "Stormers Rugby Bar", "item": "https://saffa.ae/directory/food-lifestyle/stormers-bar-dubai/"}]}
   </script>
 </head>
 <body>
@@ -67,7 +70,7 @@
 
 
       <h2 style="margin-top:2.5rem">Related Guides</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem">
         <a href="/guides/first-weeks/" class="guide-card"><div class="guide-tag">Settling In</div><div class="guide-title">Your First Weeks in Dubai</div><div class="guide-arrow">Read →</div></a>
         <a href="/community/" class="guide-card"><div class="guide-tag">Community</div><div class="guide-title">SA Community Groups</div><div class="guide-arrow">Read →</div></a>
       </div>
@@ -79,8 +82,7 @@
         <a href="/directory/food-lifestyle/" style="color:var(--green)">Browse all Food & Lifestyle listings →</a>
       </p>
       <p style="font-size:0.8rem;color:var(--gray-400);margin:0">
-        Know something that needs updating?
-        <a href="/submit/" style="color:var(--green)">Submit a correction</a>
+        Know something that needs updating? <a href="/submit/" style="color:var(--green)">Submit a correction</a>
       </p>
     </div>
   </div>
