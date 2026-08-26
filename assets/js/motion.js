@@ -5,6 +5,11 @@
 (function () {
   'use strict';
 
+  /* Signal synchronously that JS motion is available.
+     CSS uses .js-motion [data-hero-reveal] { opacity:0 } — without this class,
+     hero content stays visible even if this script fails or is slow on mobile. */
+  document.documentElement.classList.add('js-motion');
+
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ── Hero entrance sequence ─────────────────────────────────────────────── */
