@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit a Listing — Add Your SA Business to Saffa.ae</title>
+  <meta name="description" content="Add your South African-owned or SA-friendly business to the Saffa.ae directory. Free submission for the SA community in UAE.">
+  <link rel="canonical" href="https://saffa.ae/submit/">
+  <meta property="og:title" content="Submit a Listing | Saffa.ae">
+  <meta property="og:description" content="Add your SA business to the Saffa.ae directory. Free for the SA community in UAE.">
+  <meta property="og:url" content="https://saffa.ae/submit/">
+  <meta property="og:image" content="https://saffa.ae/assets/images/logo-avatar.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<div id="site-nav"></div>
+
+<section class="page-header">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><span>Submit a Listing</span></nav>
+    <h1>Add Your Business</h1>
+    <p>Help fellow Saffas find great SA-owned and SA-friendly businesses in the UAE. Free submission.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-sm">
+
+    <div class="info-box" style="margin-bottom:2rem">
+      <strong>📋 What we list</strong>
+      <ul style="margin:0.5rem 0 0;padding-left:1.25rem;list-style:disc">
+        <li>SA-owned businesses operating in UAE</li>
+        <li>SA-friendly businesses recommended by the community</li>
+        <li>SA community organisations, churches and non-profits</li>
+        <li>SA WhatsApp community groups</li>
+      </ul>
+      Submissions are reviewed within 48 hours. Verified listings are marked with ✓.
+    </div>
+
+    <form id="listing-form" style="display:flex;flex-direction:column;gap:1.25rem">
+      <div class="form-group">
+        <label class="form-label" for="biz-name">Business / Organisation Name <span style="color:var(--red)">*</span></label>
+        <input type="text" id="biz-name" name="name" class="form-input" placeholder="e.g. Braai King Dubai" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="biz-category">Category <span style="color:var(--red)">*</span></label>
+        <select id="biz-category" name="category" class="form-select" required>
+          <option value="">Select a category</option>
+          <option value="professional-business">Professional & Business</option>
+          <option value="home-family">Home & Family</option>
+          <option value="food-lifestyle">Food & Lifestyle</option>
+          <option value="services-trades">Services & Trades</option>
+          <option value="community-organisations">Community Organisation</option>
+          <option value="whatsapp-group">WhatsApp Community Group</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="biz-emirate">Emirate / Location <span style="color:var(--red)">*</span></label>
+        <select id="biz-emirate" name="emirate" class="form-select" required>
+          <option value="">Select emirate</option>
+          <option value="Dubai">Dubai</option>
+          <option value="Abu Dhabi">Abu Dhabi</option>
+          <option value="Sharjah">Sharjah</option>
+          <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+          <option value="Ajman">Ajman</option>
+          <option value="Fujairah">Fujairah</option>
+          <option value="All UAE">All UAE / Online</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="biz-area">Area / Neighbourhood</label>
+        <input type="text" id="biz-area" name="area" class="form-input" placeholder="e.g. Dubai Marina, JBR, DIFC">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="biz-desc">Description <span style="color:var(--red)">*</span></label>
+        <textarea id="biz-desc" name="description" class="form-textarea" placeholder="Describe the business and what makes it relevant to the SA community in UAE. Include any SA-specific facts (e.g. CAPS school, SA-owned, SA products stocked)." required></textarea>
+        <div class="form-hint">Be specific — good descriptions help Saffas find the right service.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="biz-website">Website URL</label>
+        <input type="url" id="biz-website" name="website" class="form-input" placeholder="https://example.com">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="biz-phone">Phone Number (international format)</label>
+        <input type="tel" id="biz-phone" name="phone" class="form-input" placeholder="+971-4-XXX-XXXX">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="biz-whatsapp">WhatsApp Number or Link</label>
+        <input type="text" id="biz-whatsapp" name="whatsapp" class="form-input" placeholder="+971-50-XXX-XXXX or https://chat.whatsapp.com/...">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="biz-instagram">Instagram Handle</label>
+        <input type="text" id="biz-instagram" name="instagram" class="form-input" placeholder="@yourbusiness">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="biz-sa-owned">SA-owned?</label>
+        <select id="biz-sa-owned" name="sa_owned" class="form-select">
+          <option value="yes">Yes — this is a SA-owned business</option>
+          <option value="no">No — but SA-friendly / recommended by SA community</option>
+          <option value="unsure">Not sure</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="biz-submitter">Your Name (not published)</label>
+        <input type="text" id="biz-submitter" name="submitter_name" class="form-input" placeholder="Your name (optional)">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="biz-email">Your Email (for submission confirmation)</label>
+        <input type="email" id="biz-email" name="submitter_email" class="form-input" placeholder="your@email.com">
+        <div class="form-hint">Not published. We'll email you when your listing goes live.</div>
+      </div>
+
+      <div>
+        <button type="submit" class="btn btn-primary btn-lg">Submit Listing</button>
+        <p style="font-size:0.8125rem;color:var(--gray-500);margin-top:0.75rem">By submitting, you confirm this listing is accurate to the best of your knowledge. We review all submissions before publishing.</p>
+      </div>
+    </form>
+
+    <div id="form-success" style="display:none;margin-top:2rem" class="success-box">
+      <strong>✓ Submission received!</strong>
+      <p>Thank you — we'll review your listing within 48 hours and email you when it goes live.</p>
+    </div>
+
+    <div id="form-error" style="display:none;margin-top:2rem" class="warning-box">
+      <strong>⚠️ Submission issue</strong>
+      <p>We couldn't process your form right now. Please email your listing details to <a href="mailto:listings@saffa.ae" style="color:var(--green)">listings@saffa.ae</a> or reach us on WhatsApp.</p>
+    </div>
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="/assets/js/nav-footer.js"></script>
+<script src="/assets/js/main.js"></script>
+<script>
+document.getElementById('listing-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  /* Form submission — in v0.1 we show success state; backend integration (Google Forms or Supabase) to be wired in v0.2 */
+  document.getElementById('listing-form').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+});
+</script>
+</body>
+</html>

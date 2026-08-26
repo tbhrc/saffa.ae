@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saffa.ae — South Africans in the UAE | Directory, Guides & Community</title>
+  <meta name="description" content="The home for South Africans living in the UAE. Find SA-owned businesses, expat guides, WhatsApp community groups and events. From Durban to Dubai — welcome, braai is ready.">
+  <meta name="keywords" content="South Africans UAE, Saffas Dubai, South African expats UAE, SA community Dubai, SA businesses Dubai">
+  <link rel="canonical" href="https://saffa.ae/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saffa.ae/">
+  <meta property="og:title" content="Saffa.ae — South Africans in the UAE">
+  <meta property="og:description" content="Find SA businesses, expat guides, WhatsApp community groups and events in the UAE.">
+  <meta property="og:image" content="https://saffa.ae/assets/images/logo-avatar.png">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:site_name" content="Saffa.ae">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Saffa.ae — South Africans in the UAE">
+  <meta name="twitter:description" content="Find SA businesses, guides and WhatsApp community groups in the UAE.">
+  <meta name="twitter:image" content="https://saffa.ae/assets/images/logo-avatar.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Saffa.ae",
+    "url": "https://saffa.ae",
+    "logo": "https://saffa.ae/assets/images/logo.png",
+    "description": "Community directory and guide for South Africans living in the UAE.",
+    "sameAs": [
+      "https://www.instagram.com/saffa.ae",
+      "https://www.facebook.com/saffa.ae"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite with SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Saffa.ae",
+    "url": "https://saffa.ae",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://saffa.ae/directory/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many South Africans live in the UAE?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There are an estimated 45,000–50,000 South Africans living in the UAE, primarily in Dubai and Abu Dhabi, making it one of the largest SA expat communities in the Middle East."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is the South African Consulate in Dubai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The South African Consulate General is located in Umm Hurair, Bur Dubai. Phone: +971-4-397-5222. Appointments for passport renewals and documents must be booked online via the DIRCO website."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What WhatsApp groups exist for South Africans in UAE?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Saffa.ae lists 19+ WhatsApp community groups covering general Saffas in Dubai, SA Jobs UAE, SA Ladies, SA Moms, Springboks rugby, Cape Town expats, JHB expats and more. Visit our Community page."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Search South Africans in UAE">
+  <div class="container hero-inner">
+    <div class="hero-badge">🇿🇦 45,000+ South Africans in the UAE</div>
+    <h1>Your <span>home away</span><br>from home</h1>
+    <p class="hero-sub">Find SA businesses, expat guides, WhatsApp groups and events across the UAE. From Durban to Dubai — you're among Saffas.</p>
+
+    <div class="search-wrap" id="search-wrap">
+      <div class="search-box">
+        <div class="search-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+        <input type="search" id="hero-search" placeholder="Search businesses, guides, WhatsApp groups…" aria-label="Search Saffa.ae" autocomplete="off">
+        <button class="search-btn" id="search-submit-btn" aria-label="Search">Search</button>
+      </div>
+      <div id="search-results" role="listbox" aria-label="Search results"></div>
+    </div>
+
+    <div class="search-pills" aria-label="Quick searches">
+      <button class="search-pill">Restaurants & Braai</button>
+      <button class="search-pill">Accountants & Tax</button>
+      <button class="search-pill">Schools Dubai</button>
+      <button class="search-pill">Visa Services</button>
+      <button class="search-pill">Moving to UAE</button>
+      <button class="search-pill">WhatsApp Groups</button>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section-sm" aria-label="Community stats">
+  <div class="container">
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-number">45K+</div>
+        <div class="stat-label">Saffas in UAE</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">200+</div>
+        <div class="stat-label">Directory listings</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">19+</div>
+        <div class="stat-label">WhatsApp groups</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">7</div>
+        <div class="stat-label">In-depth guides</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTORY CATEGORIES -->
+<section class="section section-alt fade-in" aria-label="Directory categories">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Directory</span>
+      <h2>Find what you need</h2>
+      <p class="section-sub">SA-owned and SA-friendly businesses across the UAE — vetted by the community.</p>
+    </div>
+
+    <div class="grid-3" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">
+      <a href="/directory/professional-business/" class="cat-card">
+        <div class="cat-icon cat-icon-gold">💼</div>
+        <div class="cat-title">Professional & Business</div>
+        <div class="cat-count">Accountants, lawyers, advisors, visas</div>
+        <div class="cat-arrow">Browse →</div>
+      </a>
+      <a href="/directory/home-family/" class="cat-card">
+        <div class="cat-icon cat-icon-green">🏡</div>
+        <div class="cat-title">Home & Family</div>
+        <div class="cat-count">Schools, healthcare, property, childcare</div>
+        <div class="cat-arrow">Browse →</div>
+      </a>
+      <a href="/directory/food-lifestyle/" class="cat-card">
+        <div class="cat-icon cat-icon-red">🍖</div>
+        <div class="cat-title">Food & Lifestyle</div>
+        <div class="cat-count">Braai spots, SA products, restaurants</div>
+        <div class="cat-arrow">Browse →</div>
+      </a>
+      <a href="/directory/services-trades/" class="cat-card">
+        <div class="cat-icon cat-icon-blue">🔧</div>
+        <div class="cat-title">Services & Trades</div>
+        <div class="cat-count">IT, motors, photography, handyman</div>
+        <div class="cat-arrow">Browse →</div>
+      </a>
+      <a href="/directory/community-organisations/" class="cat-card">
+        <div class="cat-icon cat-icon-purple">🤝</div>
+        <div class="cat-title">Community</div>
+        <div class="cat-count">SA organisations, churches, non-profits</div>
+        <div class="cat-arrow">Browse →</div>
+      </a>
+      <a href="/submit/" class="cat-card" style="border-style:dashed;background:transparent">
+        <div class="cat-icon" style="background:var(--gray-100)">➕</div>
+        <div class="cat-title">Add Your Business</div>
+        <div class="cat-count">Submit a SA business or service</div>
+        <div class="cat-arrow" style="color:var(--gray-500)">Submit →</div>
+      </a>
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="/directory/" class="btn btn-outline">View full directory</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP JOIN BANNER -->
+<section class="section fade-in" aria-label="Join WhatsApp community">
+  <div class="container">
+    <div class="wa-banner">
+      <svg viewBox="0 0 24 24" fill="white" width="48" height="48" style="margin:0 auto 1rem" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <h2>Join the Saffas UAE WhatsApp Community</h2>
+      <p>Over 5,000 South Africans connecting on WhatsApp across 19+ groups — jobs, families, professionals, braai lovers and more.</p>
+      <div class="flex-center gap-4" style="flex-wrap:wrap">
+        <a href="https://chat.whatsapp.com/JoinSaffasUAE" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-lg">
+          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Join Main Group — Saffas in Dubai
+        </a>
+        <a href="/community/" class="btn btn-outline-white">Browse all 19 groups</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDES -->
+<section class="section section-alt fade-in" aria-label="Expat guides">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Guides</span>
+      <h2>Everything you need to know</h2>
+      <p class="section-sub">Practical guides written for South Africans in the UAE — from your first day to your third year.</p>
+    </div>
+
+    <div class="grid-3" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+      <a href="/guides/moving-to-uae/" class="guide-card">
+        <div class="guide-tag">Relocation</div>
+        <div class="guide-title">Moving to UAE as a South African</div>
+        <p class="guide-desc">Visa options, what to pack, what to sort before you leave SA and the 10 things every Saffa wishes they knew.</p>
+        <div class="guide-arrow">Read guide →</div>
+      </a>
+      <a href="/guides/first-weeks/" class="guide-card">
+        <div class="guide-tag">Settling In</div>
+        <div class="guide-title">Your First Weeks in Dubai</div>
+        <p class="guide-desc">Emirates ID, bank account, driving licence, SIM card, health insurance — your first 30-day checklist.</p>
+        <div class="guide-arrow">Read guide →</div>
+      </a>
+      <a href="/guides/consulate-documents/" class="guide-card">
+        <div class="guide-tag">Official</div>
+        <div class="guide-title">SA Consulate & Documents</div>
+        <p class="guide-desc">Passport renewals, unabridged birth certificates, police clearances, apostilles and emergency travel documents from Dubai.</p>
+        <div class="guide-arrow">Read guide →</div>
+      </a>
+      <a href="/guides/family-and-schools/" class="guide-card">
+        <div class="guide-tag">Family</div>
+        <div class="guide-title">Family & Schools in Dubai</div>
+        <p class="guide-desc">CAPS curriculum schools, schooling costs, family visas, nurseries and raising kids in the UAE.</p>
+        <div class="guide-arrow">Read guide →</div>
+      </a>
+      <a href="/guides/money-and-banking/" class="guide-card">
+        <div class="guide-tag">Finance</div>
+        <div class="guide-title">Money & Banking Guide</div>
+        <p class="guide-desc">Best UAE banks for Saffas, sending money to SA, SARS compliance, financial emigration and forex tips.</p>
+        <div class="guide-arrow">Read guide →</div>
+      </a>
+      <a href="/guides/work-and-business/" class="guide-card">
+        <div class="guide-tag">Work</div>
+        <div class="guide-title">Work & Business in UAE</div>
+        <p class="guide-desc">Employment visas, freelance licences, setting up a company, free zones and the SA professional landscape in UAE.</p>
+        <div class="guide-arrow">Read guide →</div>
+      </a>
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="/guides/" class="btn btn-outline">View all guides</a>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="section fade-in" aria-label="Upcoming events">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Events</span>
+      <h2>What's on for Saffas</h2>
+      <p class="section-sub">Community events, SABCO networking, braai days and more.</p>
+    </div>
+
+    <div style="max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:1rem">
+      <a href="https://sabco-uae.org/event/big-inter-council-networking-night-10-sep-2026/" target="_blank" rel="noopener noreferrer" class="event-card">
+        <div class="event-date">
+          <div class="event-month">SEP</div>
+          <div class="event-day">10</div>
+        </div>
+        <div class="event-body">
+          <div class="event-title">BIG Inter-Council Networking Night</div>
+          <div class="event-meta">📍 SO/ Uptown Dubai &nbsp;·&nbsp; 6:30 PM &nbsp;·&nbsp; SABCO</div>
+        </div>
+      </a>
+      <a href="https://sabco-uae.org/eventss/" target="_blank" rel="noopener noreferrer" class="event-card">
+        <div class="event-date">
+          <div class="event-month">OCT</div>
+          <div class="event-day">24</div>
+        </div>
+        <div class="event-body">
+          <div class="event-title">South African Braai Day UAE 🔥</div>
+          <div class="event-meta">📍 Sheraton JBR, Dubai &nbsp;·&nbsp; Annual celebration &nbsp;·&nbsp; SABCO</div>
+        </div>
+      </a>
+      <a href="https://sabco-uae.org/eventss/" target="_blank" rel="noopener noreferrer" class="event-card">
+        <div class="event-date">
+          <div class="event-month">NOV</div>
+          <div class="event-day">25</div>
+        </div>
+        <div class="event-body">
+          <div class="event-title">SABCO Annual Golf Day & Dinner</div>
+          <div class="event-meta">📍 The Els Club, Dubai &nbsp;·&nbsp; Gala dinner &nbsp;·&nbsp; SABCO</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="/events/" class="btn btn-outline">All upcoming events</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SAFFA.AE -->
+<section class="section section-green fade-in">
+  <div class="container text-center" style="max-width:680px">
+    <span class="section-label">About</span>
+    <h2>Built by Saffas, for Saffas</h2>
+    <p style="color:rgba(255,255,255,0.85);font-size:1.0625rem;margin-top:0.75rem;line-height:1.8">
+      Saffa.ae is a free community directory run by South Africans who call the UAE home. We know how hard it is to find the right accountant who understands SA tax, a school that offers CAPS, or just a decent boerewors roll. This site fixes that.
+    </p>
+    <div class="flex-center gap-4 mt-8" style="flex-wrap:wrap">
+      <a href="/about/" class="btn btn-outline-white">Learn more</a>
+      <a href="/submit/" class="btn btn-gold">Submit a listing</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="/assets/js/nav-footer.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/search.js"></script>
+</body>
+</html>

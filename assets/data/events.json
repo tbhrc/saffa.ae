@@ -1,0 +1,82 @@
+{
+  "events": [
+    {
+      "id": "sabco-biznet-sep-2026",
+      "title": "BIZNET Breakfast Networking",
+      "organiser": "SABCO",
+      "date": "2026-09-04",
+      "time": "8:30 AM – 11:00 AM",
+      "venue": "TBC – check SABCO calendar",
+      "emirate": "Dubai",
+      "description": "SABCO's monthly business breakfast networking session. Open to members and guests. Mix of professionals from across the SA community in UAE.",
+      "price": "Free – AED 120",
+      "url": "https://sabco-uae.org/eventss/",
+      "category": "Networking"
+    },
+    {
+      "id": "big-inter-council-sep-2026",
+      "title": "BIG Inter-Council Networking Night",
+      "organiser": "SABCO & Partners",
+      "date": "2026-09-10",
+      "time": "6:30 PM – 9:00 PM",
+      "venue": "SO/ Uptown Dubai",
+      "emirate": "Dubai",
+      "description": "Cross-industry networking night bringing together multiple business councils. Hosted at SO/ Uptown Dubai. Smart casual dress.",
+      "price": "AED 180 – 250",
+      "url": "https://sabco-uae.org/event/big-inter-council-networking-night-10-sep-2026/",
+      "category": "Networking"
+    },
+    {
+      "id": "dhl-ecommerce-sep-2026",
+      "title": "DHL GoTrade E-Commerce Workshop",
+      "organiser": "DHL GoTrade / SABCO",
+      "date": "2026-09-15",
+      "time": "10:00 AM – 12:00 PM",
+      "venue": "TBC – check SABCO calendar",
+      "emirate": "Dubai",
+      "description": "Workshop on e-commerce opportunities for SA businesses trading into the UAE and the region. Co-hosted by DHL GoTrade.",
+      "price": "TBC",
+      "url": "https://sabco-uae.org/eventss/",
+      "category": "Business"
+    },
+    {
+      "id": "braai-day-oct-2026",
+      "title": "South African Braai Day UAE",
+      "organiser": "SABCO",
+      "date": "2026-10-24",
+      "time": "TBC",
+      "venue": "Sheraton JBR, Dubai",
+      "emirate": "Dubai",
+      "description": "National Braai Day celebrated in Dubai. Annual gathering of the SA community — boerewors, sosaties, live music and community spirit. One of the biggest SA events on the UAE calendar.",
+      "price": "TBC",
+      "url": "https://sabco-uae.org/eventss/",
+      "category": "Community"
+    },
+    {
+      "id": "sabco-golf-day-nov-2026",
+      "title": "SABCO Annual Golf Day & Dinner",
+      "organiser": "SABCO",
+      "date": "2026-11-25",
+      "time": "Morning tee-off; dinner evening",
+      "venue": "The Els Club, Dubai",
+      "emirate": "Dubai",
+      "description": "SABCO's flagship annual golf day at The Els Club (designed by SA golfing legend Ernie Els). Full-day event followed by gala dinner. Corporate tables available.",
+      "price": "TBC",
+      "url": "https://sabco-uae.org/eventss/",
+      "category": "Sports"
+    },
+    {
+      "id": "inter-africa-abu-dhabi-oct-2026",
+      "title": "Inter-Africa Council Event",
+      "organiser": "Multiple Councils",
+      "date": "2026-10-03",
+      "time": "TBC",
+      "venue": "Abu Dhabi",
+      "emirate": "Abu Dhabi",
+      "description": "Pan-African business council event in Abu Dhabi. Strong SA representation. Good opportunity to connect with the broader African professional community in UAE.",
+      "price": "TBC",
+      "url": "https://sabco-uae.org/eventss/",
+      "category": "Networking"
+    }
+  ]
+}

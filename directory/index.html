@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SA Business Directory UAE | South Africans in Dubai | Saffa.ae</title>
+  <meta name="description" content="Find South African-owned and SA-friendly businesses in the UAE. Accountants, schools, restaurants, braai spots, visa services and more — vetted by the SA community.">
+  <link rel="canonical" href="https://saffa.ae/directory/">
+  <meta property="og:title" content="SA Business Directory UAE | Saffa.ae">
+  <meta property="og:description" content="South African businesses and services in UAE — vetted by the SA community.">
+  <meta property="og:url" content="https://saffa.ae/directory/">
+  <meta property="og:image" content="https://saffa.ae/assets/images/logo-avatar.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://saffa.ae/"},
+      {"@type":"ListItem","position":2,"name":"Directory","item":"https://saffa.ae/directory/"}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<section class="page-header">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><span>Directory</span></nav>
+    <h1>SA Business Directory</h1>
+    <p>South African-owned and SA-friendly businesses across the UAE — vetted by the community.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Filter bar -->
+    <div class="filter-bar" style="margin-bottom:2.5rem">
+      <div class="filter-search">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16" style="flex-shrink:0;color:var(--gray-400)"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="search" id="dir-filter-input" placeholder="Search businesses, services…" aria-label="Search directory">
+      </div>
+      <select id="dir-filter-cat" class="filter-select" aria-label="Filter by category">
+        <option value="">All categories</option>
+        <option value="professional-business">Professional & Business</option>
+        <option value="home-family">Home & Family</option>
+        <option value="food-lifestyle">Food & Lifestyle</option>
+        <option value="services-trades">Services & Trades</option>
+        <option value="community-organisations">Community</option>
+      </select>
+      <select id="dir-filter-emirate" class="filter-select" aria-label="Filter by emirate">
+        <option value="">All Emirates</option>
+        <option value="Dubai">Dubai</option>
+        <option value="Abu Dhabi">Abu Dhabi</option>
+        <option value="Sharjah">Sharjah</option>
+      </select>
+      <select id="dir-filter-sa" class="filter-select" aria-label="Filter SA-owned">
+        <option value="">All listings</option>
+        <option value="sa">SA-Owned only</option>
+        <option value="verified">Verified only</option>
+      </select>
+    </div>
+
+    <!-- Dynamic grid -->
+    <div id="directory-grid"></div>
+
+    <!-- Submit CTA -->
+    <div style="text-align:center;margin-top:3rem;padding:2rem;background:var(--gray-50);border-radius:var(--radius-lg)">
+      <h3 style="margin-bottom:0.5rem">Know a SA business not listed here?</h3>
+      <p style="color:var(--gray-600);margin-bottom:1rem">Help the community — submit a listing for free. Verified by our team within 48 hours.</p>
+      <a href="/submit/" class="btn btn-primary">Submit a listing</a>
+    </div>
+
+    <!-- Category tiles -->
+    <div style="margin-top:3rem">
+      <h2 style="font-size:1.5rem;margin-bottom:1.5rem">Browse by category</h2>
+      <div class="grid-3" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">
+        <a href="/directory/professional-business/" class="cat-card">
+          <div class="cat-icon cat-icon-gold">💼</div>
+          <div class="cat-title">Professional & Business</div>
+          <div class="cat-count">Accountants, lawyers, advisors, visas, recruitment</div>
+          <div class="cat-arrow">Browse →</div>
+        </a>
+        <a href="/directory/home-family/" class="cat-card">
+          <div class="cat-icon cat-icon-green">🏡</div>
+          <div class="cat-title">Home & Family</div>
+          <div class="cat-count">Schools, healthcare, property, childcare, moving</div>
+          <div class="cat-arrow">Browse →</div>
+        </a>
+        <a href="/directory/food-lifestyle/" class="cat-card">
+          <div class="cat-icon cat-icon-red">🍖</div>
+          <div class="cat-title">Food & Lifestyle</div>
+          <div class="cat-count">Braai, SA products, restaurants, wellness, sport</div>
+          <div class="cat-arrow">Browse →</div>
+        </a>
+        <a href="/directory/services-trades/" class="cat-card">
+          <div class="cat-icon cat-icon-blue">🔧</div>
+          <div class="cat-title">Services & Trades</div>
+          <div class="cat-count">IT, motors, photography, home services, handyman</div>
+          <div class="cat-arrow">Browse →</div>
+        </a>
+        <a href="/directory/community-organisations/" class="cat-card">
+          <div class="cat-icon cat-icon-purple">🤝</div>
+          <div class="cat-title">Community</div>
+          <div class="cat-count">SA organisations, churches, non-profits</div>
+          <div class="cat-arrow">Browse →</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="/assets/js/nav-footer.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/search.js"></script>
+</body>
+</html>
