@@ -52,7 +52,7 @@ robots.txt
 
 ### Before touching any file:
 1. **Read the file before editing.** Never overwrite without reading first.
-2. **Do not push to GitHub** without explicit approval from David.
+2. **Push authorised GitHub changes directly** after the relevant verification; use a branch or Pull Request only when review or parallel work materially helps.
 3. **Do not deploy to Hostinger** (upload to public_html) without explicit approval from David.
 4. **Verify internal links** before reporting changes complete — all `href` paths must use `/directory/category/`, `/guides/topic/`, etc.
 
